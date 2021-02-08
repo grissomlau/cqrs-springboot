@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.grissom.cqrsspringboot.query.dao.UserQueryMapper">
+    <resultMap id="map_base" type="com.grissom.cqrsspringboot.query.dto.UserQueryDTO">
+        <id column="a_id" jdbcType="BIGINT" property="id"/>
+        <id column="a_name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+    <sql id="sql_base">
+        a.id as a_id,
+        a.name as a_name
+    </sql>
+    <select id="getUserById" resultMap="map_base" parameterType="java.lang.Long">
+        SELECT 
+        <include refid="sql_base"></include>
+        FROM sys_user a
+        WHERE a.id = #{id, jdbcType=BIGINT}
+    </select>
+</mapper>

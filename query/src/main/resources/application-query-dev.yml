@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      query:
+        initial-size: 2
+        min-idle: 1
+        max-active: 20
+        max-wait: 60000
+        username: query_user
+        password: 123456
+        url: jdbc:mysql://localhost:3307/cqrs?useUnicode=true&charactorEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat
